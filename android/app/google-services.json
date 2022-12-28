@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "219498387919",
+    "project_id": "chatingapps-f9d85",
+    "storage_bucket": "chatingapps-f9d85.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219498387919:android:ee96cf2c9ae7b97ab29aba",
+        "android_client_info": {
+          "package_name": "com.vediocall.vedio_call_audio_call"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219498387919-danlhsk84esta7pb7di5vjk5264rldog.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vediocall.vedio_call_audio_call",
+            "certificate_hash": "e91871bdda3b9accbfb87c8e1f7c0c942255b31a"
+          }
+        },
+        {
+          "client_id": "219498387919-oe9s2pp3447fjlafhm9f7s793esum65t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcN4PaTP1zlM2NmC1enHMvaoJcZ98SmrA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219498387919-oe9s2pp3447fjlafhm9f7s793esum65t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
