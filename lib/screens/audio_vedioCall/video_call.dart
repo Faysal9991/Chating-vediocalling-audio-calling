@@ -22,7 +22,6 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Consumer<AudioVideoCallProvider>(
-
         builder: (context, callProvider,child) {
           return Stack(
             children: [
@@ -35,8 +34,11 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
     enableHostControls: true,
     ),
     AgoraVideoButtons(
+      disableVideoButtonChild: IconButton(onPressed: (){
+        callProvider.onCallEnd();
+      }, icon: Icon(Icons.call,color: Colors.green,)),
     client: AgoraClient(agoraConnectionData: AgoraConnectionData(
-    appId: callProvider.appId,
+        appId: callProvider.appId,
     channelName: callProvider.channel)),
     )
             ],

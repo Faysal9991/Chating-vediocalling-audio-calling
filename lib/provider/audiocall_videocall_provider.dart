@@ -2,8 +2,10 @@ import 'dart:math';
 
 import 'package:agora_rtc_engine/rtc_engine.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:vedio_call_audio_call/data/model/audio_vediocall.dart';
+import 'package:vedio_call_audio_call/screens/massage/massage_screen.dart';
 import 'package:wakelock/wakelock.dart';
 
 class AudioVideoCallProvider with ChangeNotifier {
@@ -37,15 +39,17 @@ class AudioVideoCallProvider with ChangeNotifier {
     remoteJoined = false;
     notifyListeners();
   }
-  String randomId() {
-    const chars =
-        'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
-    Random rnd = Random();
 
-    return String.fromCharCodes(Iterable.generate(
-        25, (_) => chars.codeUnitAt(rnd.nextInt(chars.length))));
-  }
 
+  // String randomId() {
+  //   const chars =
+  //       'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
+  //   Random rnd = Random();
+  //
+  //   return String.fromCharCodes(Iterable.generate(
+  //       25, (_) => chars.codeUnitAt(rnd.nextInt(chars.length))));
+  // }
+  //
 
 
 
@@ -135,7 +139,28 @@ class AudioVideoCallProvider with ChangeNotifier {
       },
     ));
   }
+  void onCallEnd() {
+    clear();
+   _engine.leaveChannel();
+    Get.offAll(() => Massage());
+    notifyListeners();
+  }
 
 
+  void onToggleMute() {
+    muted = !muted;
+    _engine.muteLocalAudioStream(muted);
+    notifyListeners();
+  }
+
+  void onToggleMuteVideo() {
+    mutedVideo = !mutedVideo;
+    _engine.muteLocalVideoStream(mutedVideo);
+  }
+
+  void onSwitchCamera() {
+    _engine.switchCamera().then((value) => {}).catchError((err) {});
+    notifyListeners();
+  }
 
 }
